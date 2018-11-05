@@ -1,0 +1,8 @@
+@import url("component/reset.scss");
+@import url("component/header.scss");
+$weight: 400;
+$color:red;
+h1{
+	font-weight: $weight;
+	background:$color;
+}  
