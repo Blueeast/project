@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/css/cart.css"/>
+	</head>
+	<body>
+		<header></header>
+		<div class="main">
+			<div class="top">
+				<img src="/images/sfy/mycart.jpg"/>
+			</div>
+			<div class="center">
+				
+				<table id="list">
+					
+					
+					<script type="text/html" id="cart-template">
+						
+					{{each products item i}}
+					<tr class="cart-title">
+						<th style="text-align: right;width: 5%;"><input type="checkbox" name="all_choose1"/>全选</th>
+						<th style="width: 40%; text-align: left;padding-left: 20px;">商品</th>
+						<th style="width: 10%;">单价</th>
+						<th style="width: 13%;">数量</th>
+						<th style="width: 11%;">积分</th>
+						<th style="width: 11%;">总计</th>
+						<th style="width: 10%;">操作</th>
+					</tr>
+					
+					<tr>
+						<td align="center">
+							<input type="checkbox" name="all_choose"value="180A0B黑色" />
+						</td>
+						<td>
+							<div class="shop">
+								<div class="shopimg">
+									<a href=""><img src="{{item.img}}"/></a>
+								</div>
+								<div class="shoptext">
+									{{item.name}}
+								</div>
+							</div>
+						</td>
+						<td>
+							￥<input type="tel" value="{{item.price}}" id="danjia" style="width: 34px;height: 20px;text-align: center;"/>
+						</td>
+						<td>
+							<div class="num3">
+								<a id="btn-"><img src="/images/sfy/jian.jpg"/></a>
+								<input type="text" value="{{item.num}}" id="num"/>
+								<a id="btnplus"><img src="/images/sfy/jia.jpg"/></a>
+							</div>
+						</td>
+						<td>100</td>
+						<td>
+							<span>
+								￥<input id="sum" value="{{item.num*item.price}}"/>
+							</span>
+						</td>
+						<td>
+							<a href="javascript:;" class="del">删除</a>
+						</td>
+					</tr>
+					{{/each}}
+					</script>
+				</table>
+			</div>
+			<div class="pay">
+				<a href="" class="jixu">
+					<img src="/images/sfy/continue.jpg"/>
+				</a>
+				<a href="" class="jiesuan">
+					<img src="/images/sfy/jiesuan.jpg"/>
+				</a>
+			</div>
+		</div>
+		<footer></footer>
+		<script type="text/javascript" src="/libs/require/require.js" data-main="/js/cart.js"></script>
+	</body>
+</html>

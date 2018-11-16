@@ -1,0 +1,16 @@
+<ul id="hotList">
+<script type="text/html" id="hot-template">
+		
+	{{each products item i}}
+	<li class="list">
+		<p class="num">{{i+1}}</p>
+		<div class="pic"><img src='{{ item.image }}'/></div>
+		<a class="description" title="{{ item.description }}" href="">{{ item.description }}</a>
+		<span class="nowprice"><b>￥</b>{{ item.nowprice }}</span>
+		<b>已售<i>{{ item.num }}</i>件</b>
+	</li>
+
+	{{/each}}
+		
+</script>
+</ul>

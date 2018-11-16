@@ -1,0 +1,1 @@
+"use strict";define(["jquery","template"],function(e,n){function t(){}return t.prototype.init=function(){e.ajax({url:"http://localhost/data/api/hot.php",method:"POST",dataType:"json",success:function(t){if(1===t.code){var o=n("hot-template",{products:t.products});e("#hotList").html(o)}}})},new t});

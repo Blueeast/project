@@ -6,9 +6,9 @@ $hoverColor:red;
 	width:$width;
 }
 *{margin:0;padding:0;}
-html{font-family:"Microsoft Yahei";color:$baseColor;}
+html{font-family:"Microsoft Yahei";color:$baseColor;background: #f4f0f0;}
 li{list-style: none;}
-a{text-decoration:none;}
+a{text-decoration:none;color:#666;font-size: 12px;}
 //.center{
 //	@include center(1000px);
 //}

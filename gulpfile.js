@@ -22,7 +22,9 @@ gulp.task("css", function(){
 
 gulp.task("js", function(){
 	gulp.src("app/js/**/*.js")
-		.pipe(babel())
+		.pipe(babel({
+        presets: ['@babel/env']
+    }))
 		.pipe(uglify())
 		.pipe(gulp.dest("dist/js"))
 		.pipe(connect.reload());
@@ -30,7 +32,9 @@ gulp.task("js", function(){
 
 gulp.task("module", function(){
 	gulp.src("app/module/**/*.js")
-		.pipe(babel())
+		.pipe(babel({
+        presets: ['@babel/env']
+    }))
 		.pipe(uglify())
 		.pipe(gulp.dest("dist/module"))
 		.pipe(connect.reload());

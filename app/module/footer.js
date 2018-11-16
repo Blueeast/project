@@ -1,7 +1,13 @@
-require(["config"],function(){
-	require(["jquery","tools","header","footer"],function($,tools,header,footer){
-		tools.ajax("GET","/html/component/header.html",null,function(data){
-			document.getElementsByTagName("header")[0].innerHTML = data;
-		},false);
-	})
+define(["jquery"],function($){
+	function Footer(){
+		
+	}
+	Footer.prototype.init = function(){
+		$(".foot .center i").hover(function(){
+			alert("111");
+		},function(){
+			alert("222");
+		})
+	}
+	return new Footer();
 })

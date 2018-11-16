@@ -1,0 +1,16 @@
+
+	<script type="text/html" id="pro-template">
+	<ul id="proList">	
+		<a href="http://localhost:1123/html/details.html?sheet={{sheets[0].index}}" id="tiaozhuan"><img src="{{ sheets[0].background }}"/></a>
+			{{each sheets item i}}
+			<li class="lists">
+				<div class="pic"><img src='{{ item.image }}'/></div>
+				<p class="description">{{ item.description }}</p>
+				<span class="nowprice"><b>￥</b>{{ item.nowprice }}</span>
+				<span class="origprice">￥{{ item.origprice}}</span>
+				<b style="float: right;color:#999;margin-top: 9px;margin-right: 19px;">已售<i>{{ item.num }}</i>件</b>
+			</li>
+		
+			{{/each}}
+	</ul>	
+	</script>

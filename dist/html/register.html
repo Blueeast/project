@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/css/register.css"/>
+	</head>
+	<body>
+		<header></header>
+		<div class="main">
+			<h2>
+				<span>欢迎加入玄机商城</span>如果您已有账号，立即<a href="/html/login.html">登录</a>如果您还没有账号，请立即<a href="/html/register.html">注册</a>
+			</h2>
+			<div class="sheet">
+				<div class="title">
+					<h3>注册新用户</h3>
+				</div>
+				
+				<form class="regleft" action="/html/login.html">
+					<span>用户名:</span><input type="text" id="username"/><label>请输入用户名</label><br/>
+					<span>邮箱地址:</span><input type="email" id="email"/><label>请输入正确的邮箱格式</label><br/>
+					<span>设置密码:</span><input type="password" id="password"/><label>请输入6-20位密码</label><br/>
+					<span>确认密码:</span><input type="password" id="newpassword"/><label>请再次输入密码</label><br/>
+					<span>手机号码:</span><input type="tel" id="phonenum"/><label>请填写手机号</label><br/>
+					<span>验证码:</span><input type="text" id="yanzheng"/><br/>
+					<textarea>注册协议</textarea><br/>
+					<button></button>
+				</form>
+				<div class="regright">
+					<img src="/images/main/reg-bg.jpg"/>
+				</div>
+			</div>
+		</div>
+		<footer></footer>
+		<script src="/libs/require/require.js" data-main="/js/register.js"></script>
+	</body>
+	
+</html>

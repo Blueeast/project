@@ -1,0 +1,1 @@
+"use strict";define(["jquery"],function(n){function t(){}return t.prototype.init=function(){n(".foot .center i").hover(function(){alert("111")},function(){alert("222")})},new t});

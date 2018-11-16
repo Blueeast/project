@@ -1,8 +1,13 @@
 @import url("component/reset.scss");
 @import url("component/header.scss");
+@import url("component/footer.scss");
+@import url("component/sideshow.scss");
+@import url("component/list.scss");
 $weight: 400;
 $color:red;
-h1{
-	font-weight: $weight;
-	background:$color;
-}  
+body{
+    background: #F5F5F5;
+    font-family: "\5B8B\4F53", Arial, Helvetica, sans-serif;
+    color: #666666;
+    font-size:12px ;
+}

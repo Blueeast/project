@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/css/product.css"/>
+	</head>
+	<body>
+		<header></header>
+		<div class="main">
+			<!--头部-->
+			<div class="top">
+				产品中心><a id="title"></a>
+			</div>
+			<!--主体-->
+			<div class="pro">
+				<!--左边图片部分-->
+				<script type="text/html" id="pic-template">
+				<div class="proleft">
+					<!--大图片-->
+					<div class="box">
+						<img src="{{products[0].image}}" class="mainImg"/>
+						<span id="fdj"></span>
+					</div>
+					<div class="big">
+						<img src="{{products[0].image}}" class="bigImg"/>
+					</div>
+					<!--图片列表-->
+					<div class="imgList">
+						<ul class="proList">
+							<li><a href="javascript:;"><img src="{{products[0].image1}}"/></a></li>
+							<li><a href="javascript:;"><img src="{{products[0].image2}}"/></a></li>
+							<li><a href="javascript:;"><img src="{{products[0].image3}}"/></a></li>
+							<li><a href="javascript:;"><img src="{{products[0].image4}}"/></a></li>
+						</ul>
+					</div>
+				</div>
+				<!--右边功能模块-->
+				<div class="proright">
+					<h1>机械键盘</h1>
+					<!--详细信息-->
+					<div class="menu">
+						<p class="origprice">
+							市场价：<s>￥</s><s>{{products[0].origprice}}</s>
+						</p>
+						<p class="nowprice">
+							商城价：<b>￥</b><b>{{products[0].nowprice}}</b>
+						</p>
+						<p class="shou">
+							已销售：<u>{{products[0].num}}</u>
+						</p>
+						<p class="color">
+							颜&nbsp;&nbsp;  色：<a>默认</a>
+						</p>
+						<p class="num">
+							数&nbsp;&nbsp;  量：<a id="btn-"><img src="/images/sfy/jian.jpg"/></a><input type="text" value="1" id="num"/><a id="btnplus"><img src="/images/sfy/jia.jpg"/></a>
+						</p>
+						<p class="car">
+							<a class="buy"><img src="/images/sfy/buy.jpg"/></a>
+							<a class="cart" href="/html/cart.html"><img src="/images/sfy/cart.jpg" id="cart"/></a>
+						</p>
+						<p class="shoucang">
+							<a href="javascript:;">收藏此商品(<span>0</span>)</a>
+						</p>
+					</div>
+				</div>
+				</script>
+			</div>
+			
+		</div>
+		<footer></footer>
+		<script type="text/javascript" src="/libs/require/require.js" data-main="/js/product.js"></script>
+	</body>
+</html>
