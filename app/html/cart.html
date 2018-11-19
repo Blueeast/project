@@ -14,61 +14,89 @@
 			<div class="center">
 				
 				<table id="list">
-					
-					
+					<thead>
+						<tr class="cart-title">
+							<th style="text-align: right;width: 5%;"><input type="checkbox" name="all_choose1"/>全选</th>
+							<th style="width: 40%; text-align: left;padding-left: 20px;">商品</th>
+							<th style="width: 10%;">单价</th>
+							<th style="width: 13%;">数量</th>
+							<th style="width: 11%;">积分</th>
+							<th style="width: 11%;">总计</th>
+							<th style="width: 10%;">操作</th>
+						</tr>
+					</thead>
+					<tbody id="cart-tbody">
 					<script type="text/html" id="cart-template">
 						
 					{{each products item i}}
-					<tr class="cart-title">
-						<th style="text-align: right;width: 5%;"><input type="checkbox" name="all_choose1"/>全选</th>
-						<th style="width: 40%; text-align: left;padding-left: 20px;">商品</th>
-						<th style="width: 10%;">单价</th>
-						<th style="width: 13%;">数量</th>
-						<th style="width: 11%;">积分</th>
-						<th style="width: 11%;">总计</th>
-						<th style="width: 10%;">操作</th>
-					</tr>
 					
-					<tr>
-						<td align="center">
-							<input type="checkbox" name="all_choose"value="180A0B黑色" />
-						</td>
-						<td>
-							<div class="shop">
-								<div class="shopimg">
-									<a href=""><img src="{{item.img}}"/></a>
+						<tr>
+							<td align="center">
+								<input type="checkbox" name="all_choose"value="180A0B黑色" data-id = "{{item.id}}"/>
+							</td>
+							<td>
+								<div class="shop">
+									<div class="shopimg">
+										<a href=""><img src="{{item.img}}"/></a>
+									</div>
+									<div class="shoptext">
+										{{item.name}}
+									</div>
 								</div>
-								<div class="shoptext">
-									{{item.name}}
+							</td>
+							<td>
+								￥<input type="tel" value="{{item.price}}" class="danjia" style="width: 34px;height: 20px;text-align: center;"/>
+							</td>
+							<td class="num2">
+								<div class="num3">
+									<a class="btn-"><img src="/images/sfy/jian.jpg"/></a>
+									<input type="text" value="{{item.num}}" class="num" style="width: 34px;height: 20px;text-align: center;"/>
+									<a class="btnplus"><img src="/images/sfy/jia.jpg"/></a>
 								</div>
-							</div>
-						</td>
-						<td>
-							￥<input type="tel" value="{{item.price}}" id="danjia" style="width: 34px;height: 20px;text-align: center;"/>
-						</td>
-						<td>
-							<div class="num3">
-								<a id="btn-"><img src="/images/sfy/jian.jpg"/></a>
-								<input type="text" value="{{item.num}}" id="num"/>
-								<a id="btnplus"><img src="/images/sfy/jia.jpg"/></a>
-							</div>
-						</td>
-						<td>100</td>
-						<td>
-							<span>
-								￥<input id="sum" value="{{item.num*item.price}}"/>
-							</span>
-						</td>
-						<td>
-							<a href="javascript:;" class="del">删除</a>
-						</td>
-					</tr>
+							</td>
+							<td>100</td>
+							<td>
+								<span>
+									￥<input class="sum" value="{{item.num*item.price}}"/>
+								</span>
+							</td>
+							<td>
+								<a href="javascript:;" class="del">删除</a>
+							</td>
+						</tr>
+					
 					{{/each}}
 					</script>
+					</tbody>
+				</table>
+				<table id="list2">
+					<tbody>
+						<tr>
+							<td>
+								<a href="javascript:;" class="del">
+									<img src="/images/sfy/del.jpg"/>
+								</a>
+								<a href="javascript:;" class="alldel">
+									<img src="/images/sfy/alldel.jpg"/>
+								</a>
+							</td>
+							<td style="text-align: right; font-size: 12px;">
+								商品数量总计：<span class="allsum"></span>件
+							</td>
+						</tr>
+						<tr>
+							<td>
+								
+							</td>
+							<td style="text-align: right; color: #333333;font-weight: 900;">
+								商品总价：<span class="allprice" style="color: #C7000A; font-size: 26px;line-height: 26px;"></span>
+							</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 			<div class="pay">
-				<a href="" class="jixu">
+				<a href="javascript:history.go(-2)" class="jixu">
 					<img src="/images/sfy/continue.jpg"/>
 				</a>
 				<a href="" class="jiesuan">

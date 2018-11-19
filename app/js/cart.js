@@ -7,68 +7,74 @@ require(["config"],function(){
 			footer.init();
 		});
 		var cart = $.cookie("cart");
-		var json = JSON.parse(cart);
-//		console.log(json);
 		var brr = [];
-		if(brr.length === 0){
-			brr.push(json[0]);
-			console.log(brr);
-		}
-		for(var i = 0;i<brr.length;i++){
-			console.log(json[0].id);
-			if(brr[i].id === json[0].id){
-//				console.log(arr[i].n,res.products[0].id);
-				brr[i].num ++;
-				//console.log(arr[i].num,res.products[0].id);
-				break;
-			}else{
-				brr.push(json[0]);
-			}
-		}
-		console.log(brr.length);
-//		var html = `
-//			<tr class="cart-title">
-//				<th style="text-align: right;width: 5%;"><input type="checkbox" name="all_choose1"/>全选</th>
-//				<th style="width: 40%; text-align: left;padding-left: 20px;">商品</th>
-//				<th style="width: 10%;">单价</th>
-//				<th style="width: 13%;">数量</th>
-//				<th style="width: 11%;">积分</th>
-//				<th style="width: 11%;">总计</th>
-//				<th style="width: 10%;">操作</th>
-//			</tr>
-//		`;
-//		console.log(html);
-//		$("#list").html(html);
-		for(var j = 0;j<brr.length;j++){
-			var str = template("cart-template",{products:json});
-//			console.log(str);
-			$("#list").html(str);
+		if(cart){
+			brr = JSON.parse(cart);
+		}else{
+			$("#list").hide();
+			$("#list2").hide();
 		}
 		
-		$("#btn-").click(function(){
-//			console.log(444);
-			var num = $("#num").val();
+		
+//		for(var i = 0;i<json.length;i++){
+//			brr.push(json[i]);
+//		}
+//		for(var i = 0;i<brr.length;i++){
+//			console.log(json[0].id);
+//			for(var j = 0;j<json.length;j++){
+//				if(brr[i].id === json[j].id){
+//	//				console.log(arr[i].n,res.products[0].id);
+//					brr[i].num ++;
+//					//console.log(arr[i].num,res.products[0].id);
+//					break;
+//				}else{
+//					brr.push(json[j]);
+//				}
+//			}
+//			
+//		}
+		console.log(brr.length);
+//		
+		for(var j = 0;j<brr.length;j++){
+			var str = template("cart-template",{products:brr});
+//			console.log(str);
+			$("#cart-tbody").html(str);
+		}
+		
+		$(".btn-").click(function(){
+			var num = $(this).next(".num").val();
 			if(num-1 == 0){
 				num = 1;
 			}else{
 				num--;
 			}
-			$("#num").val(num);
-			console.log($("#danjia"));
-			$("#sum").val($("#danjia").val()*num);
-			console.log($("#sum").val());
-			//$("#sum").val(num*$(this).)
+			$(this).next(".num").val(num);
+			var sum = $(this).next(".num").val();
+			var price = $(this).parent().parent().prev().find(".danjia").val();
+			$(this).parent().parent().next().next().find(".sum").val(price*sum);
 		})
-		$("#btnplus").click(function(){
-			var nim = $("#num").val();
-			nim++;
-			$("#num").val(nim);
-			$("#sum").val($("#danjia").val()*nim);
+		$(".btnplus").click(function(){
+			var num = $(this).prev(".num").val();
+			num++;
+			$(this).prev(".num").val(num);
+			var sum = $(this).prev(".num").val();
+			var price = $(this).parent().parent().prev().find(".danjia").val();
+			$(this).parent().parent().next().next().find(".sum").val(price*sum);
 		})
 		$(".del").click(function(){
-			$(this).parent().parent().hide();
-			$(this).parent().parent().siblings().hide();
-			$.cookie("cart","",{expires:-1});
+			
+			$(this).parents("tr").remove();
+			console.log(brr);
+			for(var i = 0;i<brr.length;i++){
+				
+			}
+			//$.cookie("cart","",{expires:-1});
+		})
+		$(".alldel").click(function(){
+			$.cookie("cart","",{expires:-1,path:"/"});
+			window.location.reload();
+			$("#list").hide();
+			$("#list2").hide();
 		})
 	})
 })

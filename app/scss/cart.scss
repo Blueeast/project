@@ -85,7 +85,7 @@
                         }
                     }
                     span{
-                        #sum{
+                        .sum{
                             width: 34px;
                             height: 20px;
                             text-align: center;
@@ -98,6 +98,29 @@
             }
             
             
+        }
+        #list2{
+            width: 100%;
+            border: #dedede 1px solid;
+            border-top: none;
+            tbody{
+                tr{
+                    td{
+                        height: 45px;
+                        padding: 0 10px;
+                        a{
+                            outline: none;
+                            img{
+                                vertical-align: middle;
+                            }
+                        }
+                        span{
+                            font-weight: bold;
+                            color: #C7000A;
+                        }
+                    }
+                }
+            }
         }
     }
     .pay{

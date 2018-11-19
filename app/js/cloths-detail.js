@@ -13,17 +13,15 @@ require(["config"],function(){
 		obj[arr[0]] = arr[1];
 		
 		$.ajax({
-			method:"post",
-			url:"http://localhost/data/api/product.php",
-			data:obj,
+			type:"get",
+			url:"http://rap2api.taobao.org/app/mock/117852/example/1542422205383",
 			dataType:"json",
 			async:true,
 			success:function(res){
-				if(res.code === 1){
-					console.log(res.products);
-					var str = template("pic-template",{products:res.products});
-					$(".pro").html(str);
-				}
+				console.log(res.cloths);
+				var str = template("pic-template",{products:res.cloths});
+				$(".pro").html(str);
+				
 				var box = $(".box"),
 				fdj = $("#fdj"),
 				big = $(".big"),
@@ -66,53 +64,10 @@ require(["config"],function(){
 				})
 				$("#btnplus").click(function(){
 					var nim = $("#num").val();
-					nim++;
+					nim++
 					$("#num").val(nim);
 				})
-				var arr=[];
 				
-				var cart = $.cookie("cart");
-				if(cart){
-					arr = JSON.parse(cart);
-				}
-				
-				
-				$("#cart").click(function(){
-					
-					//判断id是否相同，相同就加一
-					//var cart= $.cookie("cart");
-					
-					
-//						var json = JSON.parse(cart);
-						for(var i = 0;i<arr.length;i++){
-							console.log(arr);
-							if(arr[i].id == res.products[0].id){
-								//console.log(arr[i].num,res.products[0].id);
-								arr[i].num ++;
-								//console.log(arr[i].num,res.products[0].id);
-								break;
-							}
-						}
-						if(i === arr.length){
-							var obj = {
-								id:res.products[0].id,
-								name:res.products[0].description,
-								price:res.products[0].nowprice,
-								img:res.products[0].image,
-								num:$("#num").val()
-							};
-							arr.push(obj);
-							//console.log(arr);
-						}
-						//存cookie
-						console.log(arr);
-						var str = JSON.stringify(arr);
-						console.log(str);
-						$.cookie("cart",str,{
-							path:"/",
-							expires:7
-						});
-				})
 			}
 		});
 	})
